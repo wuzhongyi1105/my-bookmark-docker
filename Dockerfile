@@ -19,6 +19,8 @@ RUN npm install \
 
 VOLUME /opt/my-bookmark/config.js
 
+VOLUME /opt/my-bookmark/schema.sql
+
 EXPOSE 2000
 
 CMD pm2 /opt/my-bookmark/start bin/www -i 0 && pm2 save && pm2 startup
