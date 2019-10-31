@@ -13,10 +13,12 @@ RUN apk upgrade --update \
 
 WORKDIR /opt/my-bookmark
 
-RUN npm install
+RUN npm install \
+ && npm install -g pm2 \
+ && cp config.default.js config.js
 
-VOLUME /opt
+VOLUME /opt/my-bookmark/config.js
 
-EXPOSE 8080 80 443
+EXPOSE 2000
 
-CMD npm run build
+CMD pm2 /opt/my-bookmark/start bin/www -i 0 && pm2 save && pm2 startup
