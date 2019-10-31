@@ -17,9 +17,7 @@ RUN npm install \
  && npm install -g pm2 \
  && cp config.default.js config.js
 
-VOLUME /opt/my-bookmark/config.js
-
-VOLUME /opt/my-bookmark/schema.sql
+VOLUME /opt/my-bookmark
 
 EXPOSE 2000
 
